@@ -1,0 +1,58 @@
+{% extends "playout.html" %}
+
+{% block content %}
+
+<br>
+<br>
+ <style>
+     select {
+         display: inline;
+     }
+
+ </style>
+  <script
+			  src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
+			  integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw="
+			  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+
+
+    </script>
+   <!-- display name, gender, dob, blood group, phone number, address -->
+    <form action="" method="POST" novalidate>
+
+
+    <p>
+        {{ form.name.label }}<br>
+        {{ form.name(size=32) }}
+    </p>
+    <p>
+        {{ form.gender.label }}<br>
+        {{ form.gender}}
+    </p>
+    <p>
+        {{ form.dob.label }}<br>
+        {{ form.dob(size=10) }}
+    </p>
+    <p>
+        {{ form.bloodGroup.label }}<br>
+        {{ form.bloodGroup }}
+    </p>
+    <p>
+        {{ form.phoneNumber.label }}<br>
+        {{ form.phoneNumber(size=32) }}
+    </p>
+    <p>
+        {{ form.address.label }}<br>
+        {{ form.address(size=32) }}
+    </p>
+    <p>
+       <p class="waves-effect waves-light btn">{{ form.submit() }}</p>
+    </p>
+
+
+    </form>
+
+</form>
+{% endblock content %}

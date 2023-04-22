@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='main.css')}}">
+    <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' />
+
+	{% if title %}
+		<title>Medical History Management - {{ title }}</title>
+	{% else %} 
+		<title>Medical History Management</title>
+	{% endif %}
+</head>
+<body>
+    <header class="site-header">
+      <nav style=" position: fixed; top: 0;">
+       <div class="nav-wrapper">
+           <a href="#!" class="brand-logo right">Logo</a>
+      <ul class="left hide-on-med-and-down">
+        <li><a class="nav-item nav-link" href="/">Home</a></li>
+          <li><a class="nav-item nav-link" href="/addreport">Add Report</a></li>
+            <li><a class="nav-item nav-link" href="/dviewreport">View Report</a></li>
+      <li><a class="nav-link nav-item" href="/dtamper">Check validity</a> </li>
+
+   <li class="nav-item">
+                {% if user != "" %}
+                  <a class="nav-link" href="/dlogout">{{ user }}</a>
+                  {% endif %}
+              </li>
+      </ul>
+    </div>
+  </nav>
+    </header>
+	<main role="main" class="container">
+      <div align="center">
+          {% block content %}
+          {% endblock %}
+      </div>
+    </main>
+
+	 </body>
+</html>

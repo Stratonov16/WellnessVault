@@ -1,0 +1,36 @@
+{% extends "playout.html" %}
+{% block content %}
+{% from "_formhelpers.html" import render_field %}
+<br>
+<br>
+{% if data %}
+<table class="table table-bordered">
+  <tr>
+    <th>Patient Name</th>
+    <th>Doctor Name</th>
+    <th>Medical Report</th>
+    <th>Pulse Rate</th>
+    <th>Blood Pressure</th>
+    <th>Temperature</th>
+    <th>Blood Sugar</th>
+    <th>Weight</th>
+    <th>Prescription</th>
+    <th>Date</th>
+  </tr>
+
+  {% for report in data %}
+  {% if report %}
+  {% for r in report %}
+  <tr>
+    {% for key, value in r.items() %}
+    <td>{{ value }}</td>
+    {% endfor %}
+  </tr>
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+
+
+</table>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,53 @@
+{% extends "navbar.html" %}
+ <style>
+     select {
+         display: inline;
+     }
+ </style>
+{% block content %}
+    <h1>Create account</h1>
+     <script
+			  src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
+			  integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw="
+			  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('select').not('.disabled').formSelect();
+        });
+    </script>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}
+            {% for error in form.username.errors %}
+            <span style="color:red;">[{{error}}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}
+            {% for error in form.password.errors %}
+            <span style="color:red;">[{{error}}]</span>
+            {% endfor %}
+        </p>
+
+        <!-- select field for selecting role -->
+        <p>
+            {{ form.role.label }}<br>
+            {{ form.role }}
+            {% for error in form.role.errors %}
+            <span style="color:red;">[{{error}}]</span>
+            {% endfor %}
+        </p>
+
+
+
+
+        <p class="waves-effect waves-light btn">{{ form.submit() }}</p>
+    </form>
+
+{% endblock %}

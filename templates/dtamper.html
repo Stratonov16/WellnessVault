@@ -1,0 +1,24 @@
+{% extends "dlayout.html" %}
+{% block content %}
+	<div class="jumbotron text-center">
+	    <h1>Check if blockchain has been tampered</h1>
+	    <p>Check if there is any unauthorized modification in the blockchain</p>
+	    <br>
+	    <form action="/dtamper" method="post">
+            <div class="form-group">
+                <input type="text" class="form-control" name="blockchain" placeholder="Enter the blockchain">
+            </div>
+            <button type="submit" class="btn btn-primary">Check</button>
+            </form>
+
+    {% if result %}
+        <h2>Result</h2>
+        {% if result == "True" %}
+            <p class="text-danger">The blockchain has been tampered</p>
+        {% else %}
+            <p class="text-success">The blockchain has not been tampered</p>
+        {% endif %}
+    {% endif %}
+	 </div>
+
+{% endblock content %}

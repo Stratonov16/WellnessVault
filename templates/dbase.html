@@ -1,0 +1,24 @@
+<html>
+  <head>
+      {% if title %}
+    <title>{{ title }} - Medical History Management System</title>
+    {% else %}
+    <title>Welcome to Medical History Management System</title>
+    {% endif %}
+  </head>
+  <body>
+    <div>Homepage: <a href="/dindex">Home</a></div>
+    <div>Login: <a href="/login">Login</a></div>
+    <hr>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+    {% block content %}{% endblock %}
+  </body>
+</html>

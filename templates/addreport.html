@@ -1,0 +1,17 @@
+{% extends "dlayout.html" %}
+{% block content %}
+    {% from "_formhelpers.html" import render_field %}
+	<form method=post>
+	  <dl>
+	    {{ render_field(form.username) }}
+		{{ render_field(form.medicalReport) }}
+		{{ render_field(form.pulse) }}
+		{{ render_field(form.bloodPressure) }}
+		{{ render_field(form.temperature) }}
+		{{ render_field(form.bloodSugar) }}
+		{{ render_field(form.weight) }}
+		{{ render_field(form.Prescription) }}
+	  </dl>
+	  <p><input type=submit class="btn btn-primary btn-lg active" value=Register></p>
+	</form>
+{% endblock content %}
