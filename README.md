@@ -1,28 +1,15 @@
-# Medical History Management System Using Blockchain (Zero Knowledge proof)
+README
 
-Implemented blockchain from scratch to store user Medical History which cannot be maniputed
-because it is stored as a blockchain.
+To run the code:
+1. Install flask
+2. Type: source venv/bin/activate
+3. Type: python Flask-server.py
 
-## how to start:
-
-install pipenv
-```
-$ pip install pipenv
-```
-
-clone and start:
-```
-$ git clone https://github.com/ujjwalrox/Medical-History-Management.git
-$ cd Medical-History-Management
-$ pipenv install
-$ pipenv shell
-$ python3 Flask-server.py
-```
-
-## Database
-
-A sample Database is also included:
-
-
+Group 15
+Team Members:
+1. 2019B5A71079H - Nikhil Sachdeva
+2. 2020A7PS2069H - Sanchit Gupta
+3. 2020A7PS1303H - Nikhil Madhav Sharma
+4. 2020A7PS1290H - Anurag Saksena
 
 

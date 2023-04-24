@@ -1,6 +1,7 @@
 {% extends "dlayout.html" %}
 {% block content %}
     {% from "_formhelpers.html" import render_field %}
+	<div class="f">
 	<form method=post>
 	  <dl>
 	    {{ render_field(form.username) }}
@@ -12,6 +13,7 @@
 		{{ render_field(form.weight) }}
 		{{ render_field(form.Prescription) }}
 	  </dl>
-	  <p><input type=submit class="btn btn-primary btn-lg active" value=Register></p>
+	  <p><input type=submit class="btn btn-primary btn-lg active blue" value=Register></p>
 	</form>
+</div>
 {% endblock content %}

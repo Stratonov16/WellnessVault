@@ -8,7 +8,7 @@ Blockchain.load_blockchains()
 node_identifier = str(uuid4()).replace('-', '')
 
 def mine(user):
-    blockchain = Blockchain.get_blockchain(user)
+    blockchain = Blockchain.viewUser(user)
     last_block = blockchain.last_block
     last_proof = last_block['proof']
 
@@ -16,7 +16,7 @@ def mine(user):
     new_block = blockchain.new_block(proof)
 
     response = {
-        'message': "New Block Forged",
+        'message': "New Block is Made",
         'index': new_block['index'],
         'transactions': new_block['transactions'],
         'proof': new_block['proof'],
@@ -27,7 +27,7 @@ def mine(user):
 
 
 def create_transaction(user, doctor, report, tup):
-    blockchain = Blockchain.get_blockchain(user)
+    blockchain = Blockchain.viewUser(user)
 
     index = blockchain.new_transaction(user, doctor, report, tup)
     message = f'Transaction will be added to Block {index}'
@@ -37,14 +37,14 @@ def create_transaction(user, doctor, report, tup):
 
 
 def full_chain(user):
-    blockchain = Blockchain.get_blockchain(user)
+    blockchain = Blockchain.viewUser(user)
     response = {'chain': blockchain.chain, 'length': len(blockchain.chain)}
     return response
 
 
 def register_nodes(user, nodes):
     # Retrieve the blockchain object associated with the given user
-    blockchain = Blockchain.get_blockchain(user)
+    blockchain = Blockchain.viewUser(user)
 
     # If nodes is None or empty, return an error message
     if not nodes:
@@ -60,10 +60,10 @@ def register_nodes(user, nodes):
 
 def consensus(user):
     # Retrieve the blockchain object associated with the given user
-    blockchain = Blockchain.get_blockchain(user)
+    blockchain = Blockchain.viewUser(user)
 
     # Check if the current node's copy of the blockchain is authoritative
-    replaced = blockchain.resolve_conflicts()
+    replaced = blockchain.longest_chain()
 
     # If the blockchain was replaced, return a success message with the updated chain
     if replaced:
@@ -82,12 +82,12 @@ def consensus(user):
     return response
 
 def isValid(user):
-    blockchain = Blockchain.get_blockchain(user)
+    blockchain = Blockchain.viewUser(user)
     return blockchain.valid_chain(blockchain.chain)
 
-def get_blockchain(user):
-    return Blockchain.get_blockchain(user)
+def viewUser(user):
+    return Blockchain.viewUser(user)
 
-def get_blockchain_list():
+def viewUser_list():
     return Blockchain.blockchain_list
 

@@ -5,7 +5,10 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Clicker+Script&display=swap" rel="stylesheet">
+  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -26,19 +29,18 @@
 
 <body>
   <header class="site-header">
-   <nav style=" position: fixed;
-  top: 0;">
-       <div class="nav-wrapper">
-           <a href="#!" class="brand-logo center">Logo</a>
-      <ul class="left hide-on-med-and-down">
-        <li><a href="/">Home</a></li>
-        <li> {% if user != "" %}
+    <nav class="black" style="position: fixed; top: 0;">
+      <div class="nav-wrapper">
+        
+        <ul class="left hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li>{% if user != "" %}
             <a class="nav-link" href="/plogout">{{ user }}</a>
-            {% endif %}</li>
-
-      </ul>
-    </div>
-  </nav>
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+    </nav>
   </header>
   <main role="main" class="container">
     <div align="center">
@@ -46,8 +48,6 @@
       {% endblock %}
     </div>
   </main>
-
-
 </body>
 
 </html>

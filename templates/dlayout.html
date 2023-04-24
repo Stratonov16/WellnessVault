@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- Required meta tags -->
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -15,38 +15,38 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='main.css')}}">
     <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' />
 
-	{% if title %}
-		<title>Medical History Management - {{ title }}</title>
-	{% else %} 
-		<title>Medical History Management</title>
-	{% endif %}
+    {% if title %}
+        <title>Wellness History Management System - {{ title }}</title>
+    {% else %} 
+        <title>WellnessVault</title>
+    {% endif %}
+    
+  
 </head>
 <body>
     <header class="site-header">
-      <nav style=" position: fixed; top: 0;">
-       <div class="nav-wrapper">
-           <a href="#!" class="brand-logo right">Logo</a>
-      <ul class="left hide-on-med-and-down">
-        <li><a class="nav-item nav-link" href="/">Home</a></li>
-          <li><a class="nav-item nav-link" href="/addreport">Add Report</a></li>
-            <li><a class="nav-item nav-link" href="/dviewreport">View Report</a></li>
-      <li><a class="nav-link nav-item" href="/dtamper">Check validity</a> </li>
-
-   <li class="nav-item">
-                {% if user != "" %}
-                  <a class="nav-link" href="/dlogout">{{ user }}</a>
-                  {% endif %}
-              </li>
-      </ul>
-    </div>
-  </nav>
+        <nav style="position: fixed; top: 0;">
+            <div class="nav-wrapper">
+                <ul class="left hide-on-med-and-down">
+                    <li><a class="nav-item nav-link" href="/">Home</a></li>
+                    <li><a class="nav-item nav-link" href="/addreport">Add Report</a></li>
+                    <li><a class="nav-item nav-link" href="/dviewreport">View Report</a></li>
+                    <li><a class="nav-link nav-item" href="/dtamper">Check validity</a></li>
+                    <li class="nav-item">
+                        {% if user != "" %}
+                            <a class="nav-link" href="/dlogout">{{ user }}</a>
+                        {% endif %}
+                    </li>
+                </ul>
+                <img class="logo" src="{{ url_for('static', filename='/logo-color.png') }}" alt="Logeo">
+            </div>
+        </nav>
     </header>
-	<main role="main" class="container">
-      <div align="center">
-          {% block content %}
-          {% endblock %}
-      </div>
+    <main role="main" class="container">
+        <div align="center">
+            {% block content %}
+            {% endblock %}
+        </div>
     </main>
-
-	 </body>
+</body>
 </html>

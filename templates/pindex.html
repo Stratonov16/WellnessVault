@@ -1,12 +1,15 @@
 {% extends "playout.html" %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='main.css')}}">
 {% block content %}
-	<div class="jumbotron text-center">
-	    <h1>MediChain</h1>
-	    <p>View your medical history reliably</p>
-	    <br>
+	<div class="jumbotron text-center" style="padding-bottom"400px">
+	    <h1>WellnessVault</h1>
+	    <h2 class ="sub">Track Your Wellness History Reliably</h2>
+		<br>
+		<br>
 	     <div class="btn-group-vertical">
-	  		<a href="/pviewreport" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View Report</a>
-		  	<a href="/pviewprofile" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View Profile</a>
+			<a href="/pviewreport" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View Report</a>
+	
+			<a href="/pviewprofile" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View Profile</a>
 			
 		</div>
 	 </div>

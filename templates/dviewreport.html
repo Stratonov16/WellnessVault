@@ -5,13 +5,13 @@
   <dl>
     {{ render_field(form.username) }}
   </dl>
-  <p><input type=submit class="btn btn-primary btn-lg active" value=View>
+  <p><input type=submit class="btn btn-primary btn-lg active blue" value=View>
 </form>
 
 <br>
 <br>
 {% if data %}
-<table class="table table-bordered">
+<table class="table table-bordered" style="padding-bottom:300px;"> 
   <tr>
     <th>Patient Name</th>
     <th>Doctor Name</th>
@@ -39,5 +39,8 @@
 
 
 </table>
+
+<br>
+
 {% endif %}
 {% endblock content %}

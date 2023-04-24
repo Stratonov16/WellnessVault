@@ -17,7 +17,7 @@
             $('select').not('.disabled').formSelect();
         });
     </script>
-    <form action="" method="post" novalidate>
+    <form action="" method="post" novalidate style="padding-bottom:300px;">
         {{ form.hidden_tag() }}
         <p>
             {{ form.username.label }}<br>
@@ -47,7 +47,7 @@
 
 
 
-        <p class="waves-effect waves-light btn">{{ form.submit() }}</p>
+        <p class="waves-effect waves-light btn blue">{{ form.submit() }}</p>
     </form>
 
 {% endblock %}

@@ -1,6 +1,6 @@
 from flask import Flask, request, flash, redirect, url_for, render_template
 from forms import *
-from controllers import mine, create_transaction, full_chain, get_blockchain, isValid
+from controllers import mine, create_transaction, full_chain, viewUser, isValid
 from zkp import gen_public_sig
 from config import Config
 from login import *

@@ -1,26 +1,33 @@
 {% extends "navbar.html" %}
 
+
 {% block content %}
-    <h1>Sign In</h1>
-    <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.username.label }}<br>
-            {{ form.username(size=32) }}
-            {% for error in form.username.errors %}
-            <span style="color:red;">[{{error}}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=32) }}
-            {% for error in form.password.errors %}
-            <span style=" color:red;">[{{error}}]</span>
-            {% endfor %}
-        </p>
-        <p class="waves-effect waves-light btn">{{ form.submit() }}</p>
-
-    </form>
-<p>Don't have an account? <a href="/register">Register</a></p>
-
+    <div class="transition">
+        <img src=/static/logo.png width="210px" height="200px" margin="30px">
+    </div>
+    <h2 class="sub">Track Your Wellness History Reliably</h2>
+    <div class="form" style="padding: 50px; padding-bottom: 300px; width: 40%; text-align: center;">
+        
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.username.label }}<br>
+                {{ form.username(size=32) }}
+                {% for error in form.username.errors %}
+                <span style="color:red;">[{{error}}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.password.label }}<br>
+                {{ form.password(size=32) }}
+                {% for error in form.password.errors %}
+                <span style="color:red;">[{{error}}]</span>
+                {% endfor %}
+            </p>
+            <p class="waves-effect waves-light btn blue">{{ form.submit() }}</p>
+    
+        </form>
+     
+        <p>Don't have an account? <a href="/register">Register</a></p>
+    </div>
 {% endblock %}

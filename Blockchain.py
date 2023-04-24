@@ -27,9 +27,6 @@ class Blockchain(object):
     def new_block(self, proof, previous_hash=None):
         """
         Create a new Block in the Blockchain
-        :param proof: <int> The proof given by the Proof of Work algorithm
-        :param previous_hash: (Optional) <str> Hash of previous Block
-        :return: <dict> New Block
         """
 
         block = {
@@ -94,19 +91,21 @@ class Blockchain(object):
         """
 
         # We must make sure that the Dictionary is Ordered, or we'll have inconsistent hashes
-        block_string = json.dumps(block, sort_keys=True).encode()
+        block_string = json.dumps(block, sort_keys=True, default=str).encode()
         return hashlib.sha256(block_string).hexdigest()
 
     """
-    A Proof of Work algorithm (PoW) is how new Blocks are created or mined on the blockchain.
-    The goal of PoW is to discover a number which solves a problem.
-    The number must be difficult to find but easy to verify
+    On the blockchain, new Blocks are generated or mined using a Proof of Work (PoW) method.
+    Finding a number that solves a problem is the aim of PoW.
+    The number must be challenging to locate yet simple to verify.
+
+
     """
 
     def proof_of_work(self, last_proof):
         """
         Simple Proof of Work Algorithm:
-         - Find a number p' such that hash(pp') contains leading 4 zeroes, where p is the previous p'
+         - Find a number p' such that hash(pp') contains leading 5 zeroes, where p is the previous p'
          - p is the previous proof, and p' is the new proof
         :param last_proof: <int>
         :return: <int>
@@ -121,7 +120,7 @@ class Blockchain(object):
     @staticmethod
     def valid_proof(last_proof, proof):
         """
-        Validates the Proof: Does hash(last_proof, proof) contain 4 leading zeroes?
+        It will validate the proof: Does hash(last_proof, proof) contain 5 leading zeroes, if yes then correct.
         :param last_proof: <int> Previous Proof
         :param proof: <int> Current Proof
         :return: <bool> True if correct, False if not.
@@ -129,7 +128,7 @@ class Blockchain(object):
 
         guess = f'{last_proof}{proof}'.encode()
         guess_hash = hashlib.sha256(guess).hexdigest()
-        if (guess_hash[:4] == "0000"):
+        if (guess_hash[:5] == "00000"):
             print("Validated: p = {}, p' = {}".format(last_proof, proof))
             return True
         return False
@@ -137,7 +136,7 @@ class Blockchain(object):
     def register_node(self, address):
         """
         Add a new node to the list of nodes
-        :param address: <str> Address of node. Eg. 'http://192.168.0.5:5000'
+        :param address: <str> Address of node. Eg. '
         :return: None
         """
 
@@ -148,7 +147,7 @@ class Blockchain(object):
 
     def valid_chain(self, chain):
         """
-        Determine if a given blockchain is valid
+        Determine if a given blockchain is valid and not tempered
         :param chain: <list> A blockchain
         :return: <bool> True if valid, False if not
         """
@@ -174,10 +173,9 @@ class Blockchain(object):
 
         return True
 
-    def resolve_conflicts(self):
+    def longest_chain(self):
         """
-        This is our Consensus Algorithm, it resolves conflicts
-        by replacing our chain with the longest one in the network.
+        This will resolves any conflicts by replacing our chain with the longest one in the network.
         :return: <bool> True if our chain was replaced, False if not
         """
 
@@ -233,14 +231,17 @@ class Blockchain(object):
     @staticmethod
     def load_blockchains():
         Blockchain.blockchain_list = []
-
         with open('database', 'rb') as file:
-            Blockchain.blockchain_list = pickle.load(file)
-        
+                    Blockchain.blockchain_list = pickle.load(file)
+
+            # generate genesis block Blockchain.new_blockchain = Blockchain.create_new_blockchain("genesis")
+
+
         print(Blockchain.blockchain_list)
 
+    #this will give should list all (successful) transactions against the user
     @staticmethod
-    def get_blockchain(user):
+    def viewUser(user):
 
         for blockchain in Blockchain.blockchain_list:
             if blockchain.user == user:

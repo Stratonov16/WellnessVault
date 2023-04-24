@@ -1,36 +1,44 @@
 {% extends "playout.html" %}
+
 {% block content %}
-{% from "_formhelpers.html" import render_field %}
-<br>
-<br>
-{% if data %}
-<table class="table table-bordered">
-  <tr>
-    <th>Patient Name</th>
-    <th>Doctor Name</th>
-    <th>Medical Report</th>
-    <th>Pulse Rate</th>
-    <th>Blood Pressure</th>
-    <th>Temperature</th>
-    <th>Blood Sugar</th>
-    <th>Weight</th>
-    <th>Prescription</th>
-    <th>Date</th>
-  </tr>
-
-  {% for report in data %}
-  {% if report %}
-  {% for r in report %}
-  <tr>
-    {% for key, value in r.items() %}
-    <td>{{ value }}</td>
-    {% endfor %}
-  </tr>
-  {% endfor %}
+<div class="container " padding-left=-20>
+  {% if data %}
+  <div class="table-responsive">
+    
+    <table class="table table-bordered table-hover" style="background-color: #E6F5FF; color: black; align:center padding-bottom:400px;">
+      <thead class="bg-light" style="background-color: #E6F5FF;">
+        <tr>
+          <th scope="col">Patient Name</th>
+          <th scope="col">Doctor Name</th>
+          <th scope="col">Medical Report</th>
+          <th scope="col">Pulse Rate</th>
+          <th scope="col">Blood Pressure</th>
+          <th scope="col">Temperature</th>
+          <th scope="col">Blood Sugar</th>
+          <th scope="col">Weight</th>
+          <th scope="col">Prescription</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for report in data %}
+        {% if report %}
+        {% for r in report %}
+        <tr>
+          {% for key, value in r.items() %}
+          {% if key == 'Medical Report' or key == 'Prescription' %}
+          <td style="min-width: 200px;">{{ value }}</td>
+          {% else %}
+          <td>{{ value }}</td>
+          {% endif %}
+          {% endfor %}
+        </tr>
+        {% endfor %}
+        {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
   {% endif %}
-  {% endfor %}
-
-
-</table>
-{% endif %}
+</div>
 {% endblock content %}

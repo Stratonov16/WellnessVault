@@ -20,9 +20,7 @@
 
     </script>
    <!-- display name, gender, dob, blood group, phone number, address -->
-    <form action="" method="POST" novalidate>
-
-
+    <form action="" method="POST" novalidate class="f" width="50%" style="padding-bottom: 90px;">
     <p>
         {{ form.name.label }}<br>
         {{ form.name(size=32) }}
@@ -48,11 +46,14 @@
         {{ form.address(size=32) }}
     </p>
     <p>
-       <p class="waves-effect waves-light btn">{{ form.submit() }}</p>
+       <p class="waves-effect waves-light btn blue">{{ form.submit() }}</p>
     </p>
 
 
     </form>
+    <br>
+    <br>
+
 
 </form>
 {% endblock content %}
