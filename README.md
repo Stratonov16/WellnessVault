@@ -14,3 +14,7 @@ Team Members:
 
 
 
+![alt text](https://github.com/Stratonov16/WellnessVault/blob/master/static/home.png)
+![alt text](https://github.com/Stratonov16/WellnessVault/blob/master/static/register.png)
+![alt text](https://github.com/Stratonov16/WellnessVault/blob/master/static/verified.png)
+![alt text](https://github.com/Stratonov16/WellnessVault/blob/master/static/report.png)
