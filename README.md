@@ -13,12 +13,14 @@ Team Members:
 4. 2020A7PS1290H - Anurag Saksena
 
 
-
+Register:
 ![alt text](https://github.com/Stratonov16/WellnessVault/blob/main/static/home.png)
 ![alt text](https://github.com/Stratonov16/WellnessVault/blob/main/static/register.png)
+
 Doctor:
 ![alt text](https://github.com/Stratonov16/WellnessVault/blob/main/static/report.png)
 ![alt text](https://github.com/Stratonov16/WellnessVault/blob/main/static/verified.png)
+
 Patient:
 ![image](https://user-images.githubusercontent.com/70238901/233883151-e84a3f19-c409-4778-9acb-42d576c34e76.png)
 
